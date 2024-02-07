@@ -1,13 +1,5 @@
 <?php
-function generate_password($number)
-{
-    $caratteri = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789,.-!"$%&/()=';
-    $my_str = '';
-    for ($i = 0; $i < $number; $i++) {
-        $my_str .= $caratteri[rand(0, strlen($caratteri) - 1)];
-    }
-    return $my_str;
-}
+include 'functions.php';
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +25,7 @@ function generate_password($number)
     </header>
 
     <main>
-        <div class="container">
+        <div class="container mb-3">
             <form action="" method="GET">
                 <div class="mb-3">
                     <label for="choose-the-length" class="form-label">Choose the length of the password</label>
@@ -43,7 +35,7 @@ function generate_password($number)
             </form>
         </div>
 
-        <div class="container">
+        <div class="container mb-3">
             <?php
             if (isset($_GET['length'])) {
                 echo generate_password($_GET['length']);
