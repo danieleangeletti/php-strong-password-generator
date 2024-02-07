@@ -43,6 +43,10 @@ include 'functions.php';
                     <input name="symbols" type="checkbox" class="form-check-input" id="with-symbols">
                     <label class="form-check-label" for="with-symbols">Symbols</label>
                 </div>
+                <div class="mb-3 form-check">
+                    <input name="no-repetitions" type="checkbox" class="form-check-input" id="no-repetitions">
+                    <label class="form-check-label" for="no-repetitions">No repetitions</label>
+                </div>
                 <button type="submit" class="btn btn-primary">GENERATE PW</button>
             </form>
         </div>

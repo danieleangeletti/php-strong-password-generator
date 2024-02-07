@@ -20,9 +20,13 @@ session_start();
 <body>
     <header>
         <div class="container">
-            <div>La password è:
-                <?php echo $_SESSION['password'] ?>
-            </div>
+            <?php
+            if (isset($_SESSION["error"]) && $_SESSION["error"] != "") {
+                echo "<h4>Error: " . $_SESSION["error"] . "</h4>";
+            } else {
+                echo "<div>La password è: " . $_SESSION['password'] . "</div>";
+            }
+            ?>
         </div>
     </header>
 

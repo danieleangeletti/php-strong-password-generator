@@ -1,5 +1,5 @@
 <?php
-function generate_password($length, $use_letters, $use_numbers, $use_symbols)
+function generate_password($length, $use_letters, $use_numbers, $use_symbols, $no_repetitions)
 {
     $lettere = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM';
     $numeri = '0123456789';
@@ -23,11 +23,19 @@ function generate_password($length, $use_letters, $use_numbers, $use_symbols)
     }
 
     $my_str = '';
-    for ($i = 0; $i < $length; $i++) {
+    while (strlen($my_str) < $length) {
         $seed = $seeds[rand(0, count($seeds) - 1)];
+        $letter = $seed[rand(0, strlen($seed) - 1)];
 
-        $my_str .= $seed[rand(0, strlen($seed) - 1)];
+        if ($no_repetitions) {
+            if (strpos($my_str, $letter) === false) {
+                $my_str .= $letter;
+            }
+        } else {
+            $my_str .= $letter;
+        }
     }
+
     return $my_str;
 }
 ?>
